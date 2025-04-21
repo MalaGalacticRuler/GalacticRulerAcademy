@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocket Science - Galactic Ruler Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+    }
+    nav {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem;
+    }
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+    nav button:hover {
+      background-color: #2563eb;
+      transform: scale(1.05);
+    }
+    nav button:active {
+      transform: scale(0.95);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section {
+      padding: 2rem;
+    }
+    section h2 {
+      font-size: 1.875rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    section p {
+      margin-bottom: 1rem;
+    }
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <h1>Galactic Ruler Academy</h1>
+      <ul>
+        <li><button onclick="window.location.href='index.html'">Home</button></li>
+        <li><button onclick="window.location.href='rockets.html'">Rocket Science</button></li>
+        <li><button onclick="window.location.href='physics.html'">Physics</button></li>
+        <li><button onclick="window.location.href='math.html'">Math</button></li>
+        <li><button onclick="window.location.href='calculator.html'">Calculator</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Rocket Science Section -->
+    <section id="rocket">
+      <h2>Rocket Science</h2>
+      <p>The Tsiolkovsky rocket equation describes the motion of vehicles that use propellant:</p>
+      <p>Δv = v<sub>e</sub> ln(m<sub>0</sub>/m<sub>f</sub>)</p>
+      <p>
+        Where Δv is the change in velocity, v<sub>e</sub> is the exhaust velocity, m<sub>0</sub> is the initial mass, and m<sub>f</sub> is the final mass.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Galactic Ruler Academy. All rights reserved.</p>
+  </footer>
+</body>
+</html>
