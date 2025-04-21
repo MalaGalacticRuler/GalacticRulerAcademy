@@ -21,43 +21,78 @@
       align-items: center;
       text-align: center;
     }
+  
     h1 {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 2rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+  
     ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      padding: 0;
     }
-    button {
-      background-color: #3b82f6;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 0.25rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.1s ease;
-    }
-    button:hover {
-      background-color: #2563eb;
-      transform: scale(1.05);
-    }
-    button:active {
+  
+    ul button {
+  background-color: transparent;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+ul button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+ul button:hover::before {
+  transform: scaleX(1);
+}
+
+ul button span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+ul button:hover span {
+  background: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: gray;
+}
+
+  
+    ul button:active {
       transform: scale(0.95);
     }
   </style>
-</head>
-<body>
+  
+  
   <h1>Welcome to Galactic Ruler Academy</h1>
   <ul>
-    <li><button onclick="window.location.href='rockets.html'">Rocket Science</button></li>
-    <li><button onclick="window.location.href='physics.html'">Physics</button></li>
-    <li><button onclick="window.location.href='math.html'">Math</button></li>
-    <li><button onclick="window.location.href='calculator.html'">Calculator</button></li>
+  
+      <li><button onclick="window.location.href='rocket.html'"><span>Rocket Science</span></button></li>
+      <li><button onclick="window.location.href='physics.html'"><span>Physics</span></button></li>
+      <li><button onclick="window.location.href='math.html'"><span>Math</span></button></li>
+      <li><button onclick="window.location.href='calculator.html'"><span>Calculator</span></button></li>
+    
   </ul>
 </body>
 </html>
