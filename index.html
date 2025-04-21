@@ -9,147 +9,94 @@
   <!-- MathJax for LaTeX rendering -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <!-- React and Babel CDNs -->
-  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-gray-100">
-  <div id="root"></div>
+  <!-- Navigation -->
+  <nav class="bg-blue-900 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Rocket Science Academy</h1>
+      <ul class="flex space-x-4">
+        <li><a href="#rocket" class="hover:underline">Rocket Science</a></li>
+        <li><a href="#physics" class="hover:underline">Physics</a></li>
+        <li><a href="#math" class="hover:underline">Math</a></li>
+        <li><a href="#calculator" class="hover:underline">Calculator</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <script type="text/babel">
-    function Navbar() {
-      return (
-        <nav className="bg-blue-900 text-white p-4">
-          <div className="container mx-auto flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Rocket Science Academy</h1>
-            <ul className="flex space-x-4">
-              <li><a href="#rocket" className="hover:underline">Rocket Science</a></li>
-              <li><a href="#physics" className="hover:underline">Physics</a></li>
-              <li><a href="#math" className="hover:underline">Math</a></li>
-              <li><a href="#calculator" className="hover:underline">Calculator</a></li>
-            </ul>
-          </div>
-        </nav>
-      );
-    }
+  <!-- Main Content -->
+  <main class="container mx-auto">
+    <!-- Rocket Science Section -->
+    <section id="rocket" class="p-8">
+      <h2 class="text-3xl font-bold mb-4">Rocket Science</h2>
+      <p class="mb-4">The Tsiolkovsky rocket equation describes the motion of vehicles that use propellant:</p>
+      <p class="text-lg">\[ \Delta v = v_e \ln\left(\frac{m_0}{m_f}\right) \]</p>
+      <p class="mt-2">
+        Where \(\Delta v\) is the change in velocity, \(v_e\) is the exhaust velocity, \(m_0\) is the initial mass, and \(m_f\) is the final mass.
+      </p>
+    </section>
 
-    function RocketSection() {
-      return (
-        <section id="rocket" className="p-8">
-          <h2 className="text-3xl font-bold mb-4">Rocket Science</h2>
-          <p className="mb-4">The Tsiolkovsky rocket equation describes the motion of vehicles that use propellant:</p>
-          <p className="text-lg">\[ \Delta v = v_e \ln\left(\frac{m_0}{m_f}\right) \]</p>
-          <p className="mt-2">
-            Where \(\Delta v\) is the change in velocity, \(v_e\) is the exhaust velocity, \(m_0\) is the initial mass, and \(m_f\) is the final mass.
-          </p>
-        </section>
-      );
-    }
+    <!-- Physics Section -->
+    <section id="physics" class="p-8 bg-white">
+      <h2 class="text-3xl font-bold mb-4">Orbital Mechanics</h2>
+      <p class="mb-4">The vis-viva equation relates the velocity of an orbiting body to its distance from the central body:</p>
+      <p class="text-lg">\[ v = \sqrt{\mu \left( \frac{2}{r} - \frac{1}{a} \right)} \]</p>
+      <p class="mt-2">
+        Where \(v\) is the velocity, \(\mu\) is the standard gravitational parameter, \(r\) is the radial distance, and \(a\) is the semi-major axis.
+      </p>
+    </section>
 
-    function PhysicsSection() {
-      return (
-        <section id="physics" className="p-8 bg-white">
-          <h2 className="text-3xl font-bold mb-4">Orbital Mechanics</h2>
-          <p className="mb-4">The vis-viva equation relates the velocity of an orbiting body to its distance from the central body:</p>
-          <p className="text-lg">\[ v = \sqrt{\mu \left( \frac{2}{r} - \frac{1}{a} \right)} \]</p>
-          <p className="mt-2">
-            Where \(v\) is the velocity, \(\mu\) is the standard gravitational parameter, \(r\) is the radial distance, and \(a\) is the semi-major axis.
-          </p>
-        </section>
-      );
-    }
+    <!-- Math Section -->
+    <section id="math" class="p-8">
+      <h2 class="text-3xl font-bold mb-4">Differential Equations in Trajectories</h2>
+      <p class="mb-4">Rocket trajectories can be modeled using differential equations. For a rocket in a vacuum:</p>
+      <p class="text-lg">\[ \frac{d^2 \vec{r}}{dt^2} = \frac{\vec{T}}{m(t)} \]</p>
+      <p class="mt-2">
+        Where \(\vec{r}\) is the position vector, \(\vec{T}\) is the thrust vector, and \(m(t)\) is the time-varying mass.
+      </p>
+    </section>
 
-    function MathSection() {
-      return (
-        <section id="math" className="p-8">
-          <h2 className="text-3xl font-bold mb-4">Differential Equations in Trajectories</h2>
-          <p className="mb-4">Rocket trajectories can be modeled using differential equations. For a rocket in a vacuum:</p>
-          <p className="text-lg">\[ \frac{d^2 \vec{r}}{dt^2} = \frac{\vec{T}}{m(t)} \]</p>
-          <p className="mt-2">
-            Where \(\vec{r}\) is the position vector, \(\vec{T}\) is the thrust vector, and \(m(t)\) is the time-varying mass.
-          </p>
-        </section>
-      );
-    }
-
-    function RocketCalculator() {
-      const [initialMass, setInitialMass] = React.useState(1000);
-      const [finalMass, setFinalMass] = React.useState(500);
-      const [exhaustVelocity, setExhaustVelocity] = React.useState(3000);
-      const [deltaV, setDeltaV] = React.useState(null);
-
-      const calculateDeltaV = () => {
-        const dv = exhaustVelocity * Math.log(initialMass / finalMass);
-        setDeltaV(dv.toFixed(2));
-      };
-
-      return (
-        <section id="calculator" className="p-8 bg-white">
-          <h2 className="text-3xl font-bold mb-4">Rocket Equation Calculator</h2>
-          <div className="space-y-4 max-w-md">
-            <div>
-              <label className="block text-lg">Initial Mass (kg):</label>
-              <input
-                type="number"
-                value={initialMass}
-                onChange={(e) => setInitialMass(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <div>
-              <label className="block text-lg">Final Mass (kg):</label>
-              <input
-                type="number"
-                value={finalMass}
-                onChange={(e) => setFinalMass(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <div>
-              <label className="block text-lg">Exhaust Velocity (m/s):</label>
-              <input
-                type="number"
-                value={exhaustVelocity}
-                onChange={(e) => setExhaustVelocity(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <button
-              onClick={calculateDeltaV}
-              className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700"
-            >
-              Calculate \(\Delta v\)
-            </button>
-            {deltaV && (
-              <p className="text-lg">
-                Change in Velocity (\(\Delta v\)): <strong>{deltaV} m/s</strong>
-              </p>
-            )}
-          </div>
-        </section>
-      );
-    }
-
-    function App() {
-      return (
+    <!-- Calculator Section -->
+    <section id="calculator" class="p-8 bg-white">
+      <h2 class="text-3xl font-bold mb-4">Rocket Equation Calculator</h2>
+      <div class="space-y-4 max-w-md">
         <div>
-          <Navbar />
-          <main className="container mx-auto">
-            <RocketSection />
-            <PhysicsSection />
-            <MathSection />
-            <RocketCalculator />
-          </main>
-          <footer className="bg-blue-900 text-white p-4 text-center">
-            <p>&copy; 2025 Rocket Science Academy. All rights reserved.</p>
-          </footer>
+          <label class="block text-lg">Initial Mass (kg):</label>
+          <input type="number" id="initialMass" value="1000" class="w-full p-2 border rounded" />
         </div>
-      );
-    }
+        <div>
+          <label class="block text-lg">Final Mass (kg):</label>
+          <input type="number" id="finalMass" value="500" class="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label class="block text-lg">Exhaust Velocity (m/s):</label>
+          <input type="number" id="exhaustVelocity" value="3000" class="w-full p-2 border rounded" />
+        </div>
+        <button onclick="calculateDeltaV()" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Calculate \(\Delta v\)
+        </button>
+        <p id="result" class="text-lg hidden">
+          Change in Velocity (\(\Delta v\)): <strong id="deltaV"></strong> m/s
+        </p>
+      </div>
+    </section>
+  </main>
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white p-4 text-center">
+    <p>© 2025 Rocket Science Academy. All rights reserved.</p>
+  </footer>
+
+  <!-- Calculator Script -->
+  <script>
+    function calculateDeltaV() {
+      const initialMass = parseFloat(document.getElementById('initialMass').value);
+      const finalMass = parseFloat(document.getElementById('finalMass').value);
+      const exhaustVelocity = parseFloat(document.getElementById('exhaustVelocity').value);
+      const deltaV = exhaustVelocity * Math.log(initialMass / finalMass);
+      document.getElementById('deltaV').textContent = deltaV.toFixed(2);
+      document.getElementById('result').classList.remove('hidden');
+    }
   </script>
 </body>
 </html>
