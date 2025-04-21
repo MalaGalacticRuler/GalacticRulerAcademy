@@ -6,14 +6,23 @@
   <link rel="stylesheet" href="css/style.css" />
   <title>Physics - Galactic Ruler Academy</title>
   <style>
-   body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
-    }
+     html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('physics.jpg.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
 
     nav {
-      background-color: #1e3a8a;
+      background-color: rgba(30, 58, 138, 0.9);
       color: white;
       padding: 1rem;
     }
@@ -91,32 +100,39 @@
     nav button:active {
       transform: scale(0.95);
     }
+
     main {
+      flex: 1;
       max-width: 1200px;
       margin: 0 auto;
+      width: 100%;
     }
+
     section {
       padding: 2rem;
-      background-color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
     }
+
     section h2 {
       font-size: 1.875rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
+
     section p {
       margin-bottom: 1rem;
     }
+
     footer {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
+    background-color: rgba(30, 58, 138, 0.9);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
     <div class="container">
       <h1>Galactic Ruler Academy</h1>
@@ -130,9 +146,7 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
   <main>
-    <!-- Physics Section -->
     <section id="physics">
       <h2>Orbital Mechanics</h2>
       <p>The vis-viva equation relates the velocity of an orbiting body to its distance from the central body:</p>
@@ -143,9 +157,10 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Galactic Ruler Academy. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
+
