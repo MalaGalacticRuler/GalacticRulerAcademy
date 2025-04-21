@@ -21,77 +21,173 @@
       align-items: center;
       text-align: center;
     }
-  
+
+    /* Keyframes for falling text animation */
+    @keyframes fallIn {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     h1 {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 2rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      animation: fallIn 0.8s ease-out forwards;
     }
-  
+
     ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
       padding: 0;
     }
-  
+
     ul button {
-  background-color: transparent;
-  color: white;
-  padding: 0.4rem 1rem;
-  border: 2px solid transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
+      background-color: transparent;
+      color: white;
+      padding: 0.4rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-ul button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  z-index: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
+    ul button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
 
-ul button:hover::before {
-  transform: scaleX(1);
-}
+    ul button:hover::before {
+      transform: scaleX(1);
+    }
 
-ul button span {
-  position: relative;
-  z-index: 1;
-  transition: color 0.4s ease;
-}
-ul button:hover span {
-  background: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: gray;
-}
+    ul button span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s ease;
+      display: inline-block;
+      opacity: 0;
+      animation: fallIn 1s ease-out forwards;
+    }
+
+    ul button:hover span {
+      background: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: gray;
+    }
 
     ul button:active {
       transform: scale(0.95);
     }
+
+    .language-selector {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .language-selector select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.4rem;
+      font-size: 1rem;
+      backdrop-filter: blur(5px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .language-selector select:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Apply animation with a delay to each button span */
+    ul button span:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    ul button span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    ul button span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    ul button span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
   </style>
-  
-  
-  <h1>Welcome to Galactic Ruler Academy</h1>
+</head>
+<body>
+  <div class="language-selector">
+    <select onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="sq">Albanian</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+
+  <h1 id="heading">Welcome to Galactic Ruler Academy</h1>
+
   <ul>
-  
-      <li><button onclick="window.location.href='rocket.html'"><span>Rocket Science</span></button></li>
-      <li><button onclick="window.location.href='physics.html'"><span>Physics</span></button></li>
-      <li><button onclick="window.location.href='math.html'"><span>Math</span></button></li>
-      <li><button onclick="window.location.href='calculator.html'"><span>Calculator</span></button></li>
-    
+    <li><button onclick="window.location.href='rocket.html'"><span id="rocket-btn">Rocket Science</span></button></li>
+    <li><button onclick="window.location.href='physics.html'"><span id="physics-btn">Physics</span></button></li>
+    <li><button onclick="window.location.href='math.html'"><span id="math-btn">Math</span></button></li>
+    <li><button onclick="window.location.href='calculator.html'"><span id="calculator-btn">Calculator</span></button></li>
   </ul>
+
+  <script>
+    const content = {
+      en: {
+        heading: "Welcome to Galactic Ruler Academy",
+        rocketBtn: "Rocket Science",
+        physicsBtn: "Physics",
+        mathBtn: "Math",
+        calculatorBtn: "Calculator"
+      },
+      sq: {
+        heading: "Mirë se vini në Akademinë e Sundimtarëve të Galaktikës",
+        rocketBtn: "Shkenca e Raketave",
+        physicsBtn: "Fizika",
+        mathBtn: "Matematika",
+        calculatorBtn: "Kalkulatori"
+      },
+      es: {
+        heading: "Bienvenidos a la Academia Galactic Ruler",
+        rocketBtn: "Ciencias de Cohetes",
+        physicsBtn: "Física",
+        mathBtn: "Matemáticas",
+        calculatorBtn: "Calculadora"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById("heading").innerText = content[lang].heading;
+      document.getElementById("rocket-btn").innerText = content[lang].rocketBtn;
+      document.getElementById("physics-btn").innerText = content[lang].physicsBtn;
+      document.getElementById("math-btn").innerText = content[lang].mathBtn;
+      document.getElementById("calculator-btn").innerText = content[lang].calculatorBtn;
+    }
+  </script>
 </body>
 </html>
+
