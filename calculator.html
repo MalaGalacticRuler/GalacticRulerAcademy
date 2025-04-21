@@ -20,7 +20,7 @@
       flex-direction: column;
     }
 
-    
+    /* Keyframes for falling text animation */
     @keyframes fallIn {
       0% {
         transform: translateY(-50px);
@@ -258,7 +258,7 @@
         <li class="language-selector">
           <select onchange="changeLanguage(this.value)">
             <option value="en">English</option>
-            <option value="sq">Albanian</option>
+            <option value="sq">Shqip</option>
             <option value="es">Español</option>
           </select>
         </li>
@@ -306,14 +306,9 @@
 
     function changeLanguage(lang) {
       alert("Language changed to: " + lang);
+      // Mund të shtosh logjikë për ndryshim të përmbajtjes këtu
     }
   </script>
 </body>
 </html>
-
-
-
-
-
-
 
